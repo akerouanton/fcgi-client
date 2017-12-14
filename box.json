@@ -1,0 +1,11 @@
+{
+    "algorithm": "SHA256",
+    "chmod": "0755",
+    "directories": [
+        "src",
+        "vendor"
+    ],
+    "main": "bin/fcgi-client",
+    "output": "fcgi-client.phar",
+    "stub": true
+}

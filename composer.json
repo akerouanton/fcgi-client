@@ -1,0 +1,22 @@
+{
+    "name": "nir-/fcgi-client",
+    "description": "CLI client for interacting with FCGI servers",
+    "type": "project",
+    "require": {
+        "hollodotme/fast-cgi-client": "^1.4",
+        "cilex/cilex": "^2.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Albin Kerouanton",
+            "email": "albin.kerouanton@knplabs.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"NiR\\FCGIClient\\": "src/"}
+    },
+    "require-dev": {
+    }
+}
