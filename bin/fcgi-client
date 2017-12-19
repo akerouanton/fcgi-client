@@ -1,8 +1,22 @@
+#!/usr/bin/env php
 <?php
+
+define('FCGI_CLIENT_VERSION', '0.2.0');
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use NiR\FCGIClient\Application;
+use Symfony\Component\Console\Application;
+use NiR\FCGIClient\Command\GetCommand;
+use NiR\FCGIClient\Command\DeleteCommand;
+use NiR\FCGIClient\Command\PostCommand;
+use NiR\FCGIClient\Command\PutCommand;
+use NiR\FCGIClient\Command\PatchCommand;
 
-$app = new Application();
+$app = new Application('fcgi-client', FCGI_CLIENT_VERSION);
+$app->add(new GetCommand());
+$app->add(new DeleteCommand());
+$app->add(new PostCommand());
+$app->add(new PutCommand());
+$app->add(new PatchCommand());
+
 $app->run();

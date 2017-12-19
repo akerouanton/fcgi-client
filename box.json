@@ -1,11 +1,31 @@
 {
     "algorithm": "SHA256",
-    "chmod": "0755",
+    "compactors": [
+        "Herrera\\Box\\Compactor\\Php"
+    ],
     "directories": [
-        "src",
-        "vendor"
+        "src"
+    ],
+    "finder": [
+        {
+            "name": "*.php",
+            "in": "vendor/",
+            "exclude": [
+                "bin",
+                "tests",
+                "Tester",
+                "Tests",
+                "DependencyInjection",
+                "CommandLoader",
+                "Logger",
+                "Event",
+                "EventListener"
+            ]
+        }
     ],
     "main": "bin/fcgi-client",
-    "output": "fcgi-client.phar",
+    "output": "build/fcgi-client.phar",
+    "chmod": "0755",
+    "git-version": "git-version",
     "stub": true
 }
