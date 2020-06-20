@@ -95,8 +95,6 @@ abstract class AbstractCommand extends Command
             $scriptName = basename($scriptFilename);
         }
 
-        var_dump($scriptName, $scriptFilename);
-
         $request = $this->instantiateRequest($scriptFilename, $queryString);
         $request->setCustomVar('SCRIPT_NAME', $scriptName);
         $request->setCustomVar('QUERY_STRING', $queryString);
