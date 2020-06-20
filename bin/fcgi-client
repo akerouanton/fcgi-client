@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-define('FCGI_CLIENT_VERSION', '0.2.0');
+define('FCGI_CLIENT_VERSION', '0.3.0');
 
 require __DIR__ . '/../vendor/autoload.php';
 
