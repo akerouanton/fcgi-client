@@ -1,5 +1,5 @@
 {
-    "name": "nir-/fcgi-client",
+    "name": "nir/fcgi-client",
     "description": "CLI client for interacting with FCGI servers",
     "type": "project",
     "require": {
