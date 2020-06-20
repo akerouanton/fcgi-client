@@ -1,0 +1,38 @@
+FROM composer:1.10.7
+SAVE ARTIFACT /usr/bin/composer /composer
+
+WORKDIR /app
+
+test:
+    FROM php:7.4-fpm-alpine
+    WORKDIR /app
+
+    COPY +base/composer /usr/bin/composer
+    ENV PATH=/app/vendor/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin
+
+    COPY composer.* .
+    RUN composer global require hirak/prestissimo && \
+        composer install --prefer-dist
+
+    COPY . .
+    RUN php-fpm -y /app/tests/fixtures/pools/unix.conf & \
+        php-fpm -y /app/tests/fixtures/pools/tcp.conf & \
+        sleep 1s && \
+        phpunit tests/
+
+build:
+    # BUILD +test
+
+    ENV PATH=/app/vendor/bin:/bin:/usr/bin:/usr/local/bin:/tmp/vendor/bin
+
+    COPY composer.* .
+    RUN composer global require hirak/prestissimo && \
+        composer install --prefer-dist --no-dev && \
+        composer global require kherge/box:~2.5
+
+    COPY . .
+    RUN rm -rf build && \
+        mkdir build && \
+        php -d phar.readonly=0 $(which box) build -vvv
+
+    SAVE ARTIFACT build/fcgi-client.phar AS LOCAL build/fcgi-client.phar

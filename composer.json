@@ -20,12 +20,5 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~6"
-    },
-    "scripts": {
-        "build": [
-            "rm -rf vendor/",
-            "composer install --prefer-dist --no-dev",
-            "box build -vvv"
-        ]
     }
 }
