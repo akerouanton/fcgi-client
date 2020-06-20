@@ -52,12 +52,12 @@ abstract class AbstractCommand extends Command
         $server  = $input->getArgument('server');
         $timeout = $input->getOption('timeout');
 
-        $socket  = ConnectionFactory::createSocket($server, $timeout);
-        $client  = new Client($socket);
+        $connection  = ConnectionFactory::createSocket($server, $timeout);
+        $client  = new Client($connection);
         $request = $this->buildRequest($input);
 
-        $response = $client->sendRequest($request);
-        $rawResponse = str_replace("\r", '', explode("\n", $response->getRawResponse()));
+        $response = $client->sendRequest($connection, $request);
+        $rawResponse = str_replace("\r", '', explode("\n", $response->getOutput()));
 
         if (!empty($rawResponse) && array_shift($rawResponse) === 'Primary script unknown') {
             fwrite(STDERR, "File not found.\n");

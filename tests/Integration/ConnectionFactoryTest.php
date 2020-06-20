@@ -13,17 +13,19 @@ class ConnectionFactoryTest extends TestCase
 {
     public function testTcpIpBasedConnection()
     {
-        $client = new Client(ConnectionFactory::createSocket('localhost:9000', 1000));
+        $client = new Client();
+        $connection = ConnectionFactory::createSocket('127.0.0.1:9000', 1000);
 
-        $response = $client->sendRequest(new GetRequest('', ''));
+        $response = $client->sendRequest($connection, new GetRequest('', ''));
         $this->assertNotFalse($response); // Junk assertion, if we're up to that point everything's alright
     }
 
     public function testUnixSocketBasedConnection()
     {
-        $client = new Client(ConnectionFactory::createSocket('/var/run/php-fpm.sock', 1000));
+        $client = new Client();
+        $connection = ConnectionFactory::createSocket('/var/run/php-fpm.sock', 1000);
 
-        $response = $client->sendRequest(new GetRequest('', ''));
+        $response = $client->sendRequest($connection, new GetRequest('', ''));
         $this->assertNotFalse($response); // Junk assertion, if we're up to that point everything's alright
     }
 }

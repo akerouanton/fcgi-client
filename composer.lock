@@ -1,47 +1,48 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7112e7d7361112dfef18211424ebff48",
+    "content-hash": "7473967a918d6ca1d57e0846ab403786",
     "packages": [
         {
             "name": "hollodotme/fast-cgi-client",
-            "version": "v1.4.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hollodotme/fast-cgi-client.git",
-                "reference": "5c2add6aed54fe2be6b1cf7bded9e7e25534187d"
+                "reference": "d97647be1b98c85fda0f1e12dd71b3f13bc839c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/5c2add6aed54fe2be6b1cf7bded9e7e25534187d",
-                "reference": "5c2add6aed54fe2be6b1cf7bded9e7e25534187d",
+                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/d97647be1b98c85fda0f1e12dd71b3f13bc839c9",
+                "reference": "d97647be1b98c85fda0f1e12dd71b3f13bc839c9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0"
+                "ext-json": "*",
+                "php": ">=7.1"
             },
             "require-dev": {
                 "tm/tooly-composer-script": "^1.0"
             },
-            "bin": [
-                "bin/fcgiget"
-            ],
             "type": "library",
             "extra": {
                 "tools": {
-                    "phpunit": {
-                        "url": "https://phar.phpunit.de/phpunit-6.4.4.phar",
+                    "phpunit7": {
+                        "url": "https://phar.phpunit.de/phpunit-7.phar",
+                        "replace": true,
                         "only-dev": true
                     },
-                    "coveralls": {
-                        "url": "https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar",
+                    "phpunit8": {
+                        "url": "https://phar.phpunit.de/phpunit-8.phar",
+                        "replace": true,
                         "only-dev": true
                     },
-                    "phpmetrics": {
-                        "url": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.3.2/phpmetrics.phar",
+                    "phpunit9": {
+                        "url": "https://phar.phpunit.de/phpunit-9.phar",
+                        "replace": true,
                         "only-dev": true
                     }
                 }
@@ -64,10 +65,11 @@
             "description": "A PHP fast CGI client to send requests (a)synchronously to PHP-FPM.",
             "keywords": [
                 "Socket",
+                "async",
                 "fastcgi",
                 "php-fpm"
             ],
-            "time": "2017-11-18T23:12:38+00:00"
+            "time": "2020-05-19T14:06:29+00:00"
         },
         {
             "name": "psr/log",
@@ -1108,6 +1110,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-12-10T08:01:53+00:00"
         },
         {
@@ -1768,5 +1771,6 @@
     "platform": {
         "php": ">=7.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
