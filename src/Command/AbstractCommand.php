@@ -92,7 +92,7 @@ abstract class AbstractCommand extends Command
         $serverProtocol = $input->getOption('server-protocol');
 
         if ($scriptName === null) {
-            $scriptName = basename($scriptFilename);
+            $scriptName = $scriptFilename;
         }
 
         $request = $this->instantiateRequest($scriptFilename, $queryString);
