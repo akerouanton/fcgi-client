@@ -21,7 +21,7 @@ service saturation, but that's another story).
 ## How to install?
 
 ```bash
-curl -o ~/bin/fcgi-client https://github.com/NiR-/fcgi-client/releases/download/v0.1.0/fcgi-client.phar
+curl -o ~/bin/fcgi-client https://github.com/akerouanton/fcgi-client/releases/download/v0.1.0/fcgi-client.phar
 chmod +x ~/bin/fcgi-client
 ```
 

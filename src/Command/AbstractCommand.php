@@ -142,7 +142,7 @@ abstract class AbstractCommand extends Command
             $request->setServerProtocol($serverProtocol);
         }
 
-        $request->setServerSoftware('NiR-/fcgi-client:' . \FCGI_CLIENT_VERSION);
+        $request->setServerSoftware('akerouanton/fcgi-client:' . \FCGI_CLIENT_VERSION);
 
         return $request;
     }
